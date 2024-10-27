@@ -1,0 +1,140 @@
+/* General Body and Background Styling */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+    background: linear-gradient(to bottom, #ffb6c1, #ff69b4);
+}
+
+.background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('background-image.jpg') no-repeat center center;
+    background-size: cover;
+    opacity: 0.3;
+}
+
+/* Message Styling */
+.message {
+    z-index: 2;
+    color: #fff;
+    text-align: center;
+    font-size: 2em;
+    padding: 20px;
+}
+
+/* Balloons Effect */
+.balloons::before, .balloons::after {
+    content: '';
+    position: absolute;
+    width: 100px;
+    height: 150px;
+    background: radial-gradient(circle, #ff69b4, #ff1493);
+    border-radius: 50%;
+    animation: float 5s ease-in-out infinite;
+    opacity: 0.7;
+}
+
+.balloons::before {
+    left: 30%;
+    animation-delay: 0s;
+}
+
+.balloons::after {
+    right: 30%;
+    animation-delay: 2s;
+}
+
+@keyframes float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+    100% { transform: translateY(0); }
+}
+
+/* Glitter Effect */
+.glitter {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    background: url('glitter.png') repeat;
+    animation: shimmer 3s linear infinite;
+}
+
+@keyframes shimmer {
+    from { transform: translateX(0); }
+    to { transform: translateX(-100%); }
+}
+
+/* Button Styling */
+.button-container {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+}
+
+button {
+    padding: 15px 25px;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.2em; /* Increased font size for better visibility */
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+/* Updated Main Button Styling */
+.main-button {
+    background-color: #b22222; /* Darker red for better contrast */
+    color: #fff; /* White text for visibility */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Added shadow for depth */
+}
+
+.yes-button {
+    background-color: #32CD32; /* Lime green */
+    color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.no-button {
+    background-color: #FF6347; /* Tomato red */
+    color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Button hover effect */
+button:hover {
+    transform: scale(1.05); /* Slightly enlarges button on hover */
+}
+
+/* Floating Hearts and Sad Faces Effect */
+.floating-heart, .floating-sad {
+    position: absolute;
+    font-size: 2em;
+    animation: floatUp 5s linear forwards;
+    pointer-events: none;
+    opacity: 0.8;
+}
+
+@keyframes floatUp {
+    from {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateY(-100vh);
+        opacity: 0;
+    }
+}
